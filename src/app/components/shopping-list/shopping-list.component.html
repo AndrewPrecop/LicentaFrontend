@@ -1,0 +1,11 @@
+<div class="row">
+  <div class="col-xs-12">
+    <button class="btn btn-success" (click)="onNewPiece()">New Component</button>
+  </div>
+</div>
+<hr>
+<div class="row">
+  <div class="col-xs-12">
+    <app-shopping-item *ngFor="let pieceEl of pieces" [piece]="pieceEl"></app-shopping-item>
+  </div>
+</div>

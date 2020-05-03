@@ -120,6 +120,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "Configurator-PC"
+    }
+  },
+  "defaultProject": "Configurator-PC",
+  "cli": {
+    "analytics": false
+  }
 }

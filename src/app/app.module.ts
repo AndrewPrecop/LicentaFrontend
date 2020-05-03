@@ -7,25 +7,30 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-//import { ShoppingListComponent } from './shopping-list/shopping-list.component';
-//import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
-import { ConfigurationsModelsComponent } from './configurations-models/configurations-models.component';
-import { ConfigurationListComponent } from './configurations-models/configuration-list/configuration-list.component';
-import { ConfigurationDetailComponent } from './configurations-models/configuration-detail/configuration-detail.component';
-import { ConfigurationItemComponent } from './configurations-models/configuration-list/configuration-item/configuration-item.component';
+ 
+import { PieceListComponent } from './components/shopping-list/shopping-list.component';
+import { PieceEditComponent } from './components/shopping-edit/shopping-edit.component';
+
+import { ComponentsComponent } from './components/components.component';
+
+import { ConfigurationsComponent } from './configurations/configurations.component';
+import { ConfigurationListComponent } from './configurations/configuration-list/configuration-list.component';
+import { ConfigurationDetailComponent } from './configurations/configuration-detail/configuration-detail.component';
+import { ConfigurationItemComponent } from './configurations/configuration-list/configuration-item/configuration-item.component';
 import { DropdownDirective } from './shared/dropdown.directive';
-//import { ShoppingListService } from './shopping-list/shopping-list.service';
-import{AppRoutingModule} from './app-routing.module'
-import { ConfigurationStartComponent } from './configurations-models/configuration-start/configuration-start.component';
-import { ConfigurationEditComponent } from './configurations-models/configuration-edit/configuration-edit.component';
-//import { ConfigurationService } from './configurations-models/configuration.service';
+import {AppRoutingModule} from './app-routing.module';
+import { ConfigurationStartComponent } from './configurations/configuration-start/configuration-start.component';
+import { ConfigurationEditComponent } from './configurations/configuration-edit/configuration-edit.component';
 import { AuthComponent } from './authentication/auth.component';
 import { LoadingSpinnerComponent } from './shared/loading-spinners/loading-spinner.componetn';
 import { AuthInterceptorService } from './authentication/auth-interceptor.service';
-import { ConfigurationsService } from './configurations-models/Services/configurations.service';
-//import { DataService } from './shared/sevices/dataService';
-//import { Configuration } from './configurations-models/piece.model';
-import {ComponentsService} from './configurations-models/Services/component.service';
+import { ConfigurationsService } from './configurations/Services/configurations.service';
+import {ComponentsService} from './configurations/Services/components.service';
+import { PiecesService } from './configurations/Services/pieces.service';
+//import { Piece } from './configurations/Models/piece';
+import { PieceDetailComponent } from './components/shopping-detail/shopping-detail.component';
+import { PieceItemComponent } from './components/shopping-item/shopping-item.component';
+
 
 
 
@@ -33,24 +38,25 @@ import {ComponentsService} from './configurations-models/Services/component.serv
   declarations: [
     AppComponent,
     HeaderComponent,
-    ConfigurationsModelsComponent,
+    ConfigurationsComponent,
     ConfigurationListComponent,
     ConfigurationDetailComponent,
     ConfigurationItemComponent,
-    //ShoppingListComponent,
-   // ShoppingEditComponent,
     DropdownDirective,
     ConfigurationStartComponent,
     ConfigurationEditComponent,
-    AuthComponent,
-    LoadingSpinnerComponent,
-   // DataService,
-    //Configuration,
     
+   
+    ComponentsComponent,
+    PieceListComponent,
+    PieceDetailComponent,
+    PieceItemComponent,
     
-   ],
+    PieceEditComponent,
 
-   //{ provide: HTTP_INTERCEPTORS, useClass: CustomInterceptor, multi: true },
+    AuthComponent,
+    LoadingSpinnerComponent
+   ],
   imports: [
     BrowserModule,
     FormsModule,
@@ -59,9 +65,9 @@ import {ComponentsService} from './configurations-models/Services/component.serv
     AppRoutingModule
   ],
   providers: [
-    //ShoppingListService,
     ConfigurationsService,
     ComponentsService,
+    PiecesService,
   {
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptorService,

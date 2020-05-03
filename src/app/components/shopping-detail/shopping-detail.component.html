@@ -1,0 +1,40 @@
+<div class="row">
+    <div class="col-xs-12">
+      <img 
+      [src]="piece?.imagePath" 
+      alt="{{ piece?.name }}" 
+      class="img-responsive"
+      style="max-height: 300px;">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <h1>{{ piece?.name }}</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <div 
+      class="btn-group"
+      appDropdown>
+        <button
+          type="button"
+          class="btn btn-primary dropdown-toggle">
+          Manage Component <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+          
+          <li><a style="cursor: pointer;" (click)="onEditPiece()">Edit Component</a></li>
+          <li><a style="cursor: pointer;" (click)="onDeletePiece()" >Delete Component</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      {{ piece?.description }}
+    </div>
+  </div>
+ 
+  
+  
