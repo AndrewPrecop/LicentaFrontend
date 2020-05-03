@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="col-xs-12">
+    <button class="btn btn-success" (click)="onNewConfiguration()">New Configuration</button>
+  </div>
+</div>
+<hr>
+<div class="row">
+  <div class="col-xs-12">
+    <app-configuration-item
+      *ngFor="let configurationEl of configurations; let i = index"
+      [configuration]="configurationEl"
+      [index]="i"></app-configuration-item>
+  </div>
+</div>
+
