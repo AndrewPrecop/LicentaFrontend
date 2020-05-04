@@ -48,6 +48,7 @@ import { PieceItemComponent } from './components/shopping-item/shopping-item.com
     
    
     ComponentsComponent,
+   // PiecesComponent,
     PieceListComponent,
     PieceDetailComponent,
     PieceItemComponent,

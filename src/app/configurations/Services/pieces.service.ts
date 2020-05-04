@@ -9,7 +9,7 @@ export class PiecesService {
     private url: string;
 
     constructor(private http: HttpClient) {
-        this.url = `https://localhost:44330/api/component`;
+        this.url = `https://localhost:44330/api/component/`;
     }
 
     getAll(): Observable<Piece[]> {
@@ -21,10 +21,12 @@ export class PiecesService {
     }
 
     add(item: Piece): Observable<Piece> {
-        return this.http.post<Piece>(this.url, item);
+        
+         return this.http.post<Piece>(this.url, item);
     }
 
     update(id: string, item: Piece): Observable<Piece> {
+        console.log(id, item);
         return this.http
             .put<Piece>(this.url + id, item);
     }

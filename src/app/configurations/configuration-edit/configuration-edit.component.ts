@@ -49,6 +49,7 @@ export class ConfigurationEditComponent implements OnInit {
     (this.configurationForm.get('components') as FormArray).push(
       new FormGroup({
         option: new FormControl(null, Validators.required)
+        
       })
     );
   }

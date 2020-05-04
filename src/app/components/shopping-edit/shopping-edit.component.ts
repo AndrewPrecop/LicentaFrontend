@@ -14,7 +14,7 @@ export class PieceEditComponent implements OnInit {
   id: string;
   editMode = false;
   pieceForm: FormGroup;
-  pieceOptions = [];
+  //pieceOptions = [];
   
   constructor(private route: ActivatedRoute,
               private piecesService: PiecesService,
@@ -24,30 +24,35 @@ export class PieceEditComponent implements OnInit {
   }
 
   ngOnInit() {
+
     this.piecesService.getAll().subscribe(result => {
-      this.pieceOptions = result;
-      
-      
+    // this.pieceOptions = result;
       this.route.params
         .subscribe(
           (params: Params) => {
             this.id = params.id;
             this.editMode = params.id != null;
             this.initForm();
-          }
+         }
         );
-        });
-  }
+    });
+
+   }
+  
   onSubmit() {
     
-  }
-  onAddPiece() {
-   
-  }
+    const body = this.pieceForm.value as Piece;
+    //body.pieces = this.pieceForm.get('pieces').value.map(o => o.option);
 
-  onDeletePiece() {
-    //(this.pieceForm.get('pieces') as FormArray).removeAt(index);
+    (this.editMode ? this.piecesService.update(this.id, body) :
+      this.piecesService.add(body)).subscribe(result => {
+        this.onCancel();
+      });
+
   }
+ 
+
+ 
 
   onCancel() {
     this.router.navigate(['../'], { relativeTo: this.route });

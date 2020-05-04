@@ -14,6 +14,11 @@
   </div>
   <div class="row">
     <div class="col-xs-12">
+      {{ configuration?.description }}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
       <div 
       class="btn-group"
       appDropdown>
@@ -29,9 +34,14 @@
       </div>
     </div>
   </div>
-  <div class="row">
+  <!-- <div class="row">
     <div class="col-xs-12">
       {{ configuration?.description }}
+    </div>
+  </div> -->
+  <div class="row">
+    <div class="col-xs-12">
+      {{ component?.name }}
     </div>
   </div>
  
@@ -41,7 +51,7 @@
         <li
           class="list-group-item"
           *ngFor="let component of configuration.components">
-          {{ component.name }} - {{ component.amount }}
+          {{ component.name }} - {{ component.brand }}- {{ component.description }}- {{ component.price }}
         </li>
       </ul>
     </div>

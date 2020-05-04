@@ -30,11 +30,95 @@
       </div>
     </div>
   </div>
-  <div class="row">
+  <!-- <div class="row">
     <div class="col-xs-12">
       {{ piece?.description }}
     </div>
+  </div> -->
+  <!-- <div class="row">
+    <div class="col-xs-12">
+      {{ piece?.name }}
+    </div>
   </div>
+  <div class="row">
+    <div class="col-xs-12">
+      {{ piece?.brand }}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      {{ piece?.price }}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      {{ piece?.amount }}
+    </div>
+  </div> -->
+
+  <h4 class="list-group-item-text">Name</h4>
+  <a
+  style="cursor: pointer;"
+  [routerLink]="[piece.id]"
+  routerLinkActive="active"
+  class="list-group-item clearfix">
+  <div class="pull-left">
+    <h4 class="list-group-item-heading">{{ piece.name }}</h4>
+    <!-- <p class="list-group-item-text">{{ piece.description }}</p> -->
+  </div>
+ 
+</a>
+
+  <h4 class="list-group-item-text">Brand</h4>
+  <a
+  style="cursor: pointer;"
+  [routerLink]="[piece.id]"
+  routerLinkActive="active"
+  class="list-group-item clearfix">
+  <div class="pull-left">
+    <h4 class="list-group-item-heading">{{ piece.brand }}</h4>
+    <!-- <p class="list-group-item-text">{{ piece.description }}</p> -->
+  </div>
+ 
+</a>
+<h4 class="list-group-item-text">Description</h4>
+  <a
+  style="cursor: pointer;"
+  [routerLink]="[piece.id]"
+  routerLinkActive="active"
+  class="list-group-item clearfix">
+  <div class="pull-left">
+    <h4 class="list-group-item-heading">{{ piece.description }}</h4>
+    <!-- <p class="list-group-item-text">{{ piece.description }}</p> -->
+  </div>
+ 
+</a>
+<h4 class="list-group-item-text">Price</h4>
+  <a
+  style="cursor: pointer;"
+  [routerLink]="[piece.id]"
+  routerLinkActive="active"
+  class="list-group-item clearfix">
+  <div class="pull-left">
+    <h4 class="list-group-item-heading">{{ piece.price }} EURO</h4>
+    <!-- <p class="list-group-item-text">{{ piece.description }}</p> -->
+  </div>
+ 
+</a>
+<h4 class="list-group-item-text">Amount</h4>
+  <a
+  style="cursor: pointer;"
+  [routerLink]="[piece.id]"
+  routerLinkActive="active"
+  class="list-group-item clearfix">
+  <div class="pull-left">
+    <h4 class="list-group-item-heading">{{ piece.amount }}  Pieces</h4>
+    <!-- <p class="list-group-item-text">{{ piece.description }}</p> -->
+  </div>
+ 
+</a>
+ 
+  
  
   
   

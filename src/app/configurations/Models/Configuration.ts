@@ -7,8 +7,9 @@ export class Configuration {
     public description: string;
     public components: Component[];
 
-    constructor(name: string, description: string, imagePath: string) {
+    constructor(name: string, description: string, imagePath: string,components:Component[]) {
         this.name = name;
         this.description = description;
-        this.imagePath = imagePath; }
+        this.imagePath = imagePath;
+        this.components= Component[''] }
 }
