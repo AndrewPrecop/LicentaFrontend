@@ -48,24 +48,24 @@ export class AuthService {
 
   }
 
-  login(email: string, password: string) {
+  login(username: string, password: string) {
     return this.http
-      .post<AuthResponseData>(
-        'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyD56yib5a5fHd2iCI3LPMIOScNIORkQe2A',
+      .post<any>(
+        'https://localhost:44330/users/authenticate',
         {
-          email,
+          username,
           password,
-          returnSecureToken: true
+          //returnSecureToken: true
         }
       )
       .pipe(
         catchError(this.handleError),
         tap(resData => {
           this.handleAuthentication(
-            resData.email,
-            resData.localId,
-            resData.idToken,
-            +resData.expiresIn
+            resData.username,
+            resData.id,
+            resData.token,
+            3600,
           );
         })
       );

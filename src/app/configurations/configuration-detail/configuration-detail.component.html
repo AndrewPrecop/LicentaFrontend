@@ -1,20 +1,20 @@
 <div class="row">
     <div class="col-xs-12">
       <img 
-      [src]="configuration?.imagePath" 
-      alt="{{ configuration?.name }}" 
+      [src]="configuration.imagePath" 
+      alt="{{ configuration.name }}" 
       class="img-responsive"
       style="max-height: 300px;">
     </div>
   </div>
   <div class="row">
     <div class="col-xs-12">
-      <h1>{{ configuration?.name }}</h1>
+      <h1>{{ configuration.name }}</h1>
     </div>
   </div>
   <div class="row">
     <div class="col-xs-12">
-      {{ configuration?.description }}
+      {{ configuration.description }}
     </div>
   </div>
   <div class="row">
@@ -34,14 +34,9 @@
       </div>
     </div>
   </div>
-  <!-- <div class="row">
-    <div class="col-xs-12">
-      {{ configuration?.description }}
-    </div>
-  </div> -->
   <div class="row">
     <div class="col-xs-12">
-      {{ component?.name }}
+      {{ configuration.name }}
     </div>
   </div>
  

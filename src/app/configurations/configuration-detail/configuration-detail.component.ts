@@ -11,6 +11,7 @@ import { ConfigurationsService } from '../Services/configurations.service';
 })
 export class ConfigurationDetailComponent implements OnInit {
   configuration: Configuration;
+  //component : Component;
   id: string;
 
   constructor(private configurationsService: ConfigurationsService,
