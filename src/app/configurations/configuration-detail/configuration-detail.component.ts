@@ -13,6 +13,7 @@ export class ConfigurationDetailComponent implements OnInit {
   configuration: Configuration;
   //component : Component;
   id: string;
+  price: number;
 
   constructor(private configurationsService: ConfigurationsService,
               private route: ActivatedRoute,
@@ -26,6 +27,7 @@ export class ConfigurationDetailComponent implements OnInit {
           this.configurationsService.getById(this.id).subscribe(
             (configuration: Configuration) => {
               this.configuration = configuration;
+              this.price=configuration.components.map(r => r.price).reduce((a, b) => a + b, 0);
             }
           );
         }

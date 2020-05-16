@@ -1,22 +1,29 @@
 <div class="row">
     <div class="col-xs-12">
       <img 
-      [src]="configuration.imagePath" 
-      alt="{{ configuration.name }}" 
+      [src]="configuration?.imagePath" 
+      alt="{{ configuration?.name }}" 
       class="img-responsive"
       style="max-height: 300px;">
     </div>
   </div>
   <div class="row">
     <div class="col-xs-12">
-      <h1>{{ configuration.name }}</h1>
+      <h1>{{ configuration?.name }}</h1>
     </div>
   </div>
   <div class="row">
     <div class="col-xs-12">
-      {{ configuration.description }}
+      {{ configuration?.description }}
     </div>
   </div>
+  <!-- <div class="pull-left">
+    <h4 class="list-group-item-heading">{{ price }} EURO</h4>
+   
+  </div> -->
+
+      <!-- {{price}} -->
+
   <div class="row">
     <div class="col-xs-12">
       <div 
@@ -34,18 +41,23 @@
       </div>
     </div>
   </div>
-  <div class="row">
-    <div class="col-xs-12">
-      {{ configuration.name }}
-    </div>
+  <h4 class="list-group-item-text">Price</h4>
+  <a
+  style="cursor: pointer;"
+  class="list-group-item clearfix">
+  <div class="pull-left">
+    <h4 class="list-group-item-heading">{{ price }} EURO</h4>
+   
   </div>
  
+</a>
+<h4 class="list-group-item-text">Components</h4>
   <div class="row">
     <div class="col-xs-12">
       <ul class="list-group">
         <li
           class="list-group-item"
-          *ngFor="let component of configuration.components">
+          *ngFor="let component of configuration?.components">
           {{ component.name }} - {{ component.brand }}- {{ component.description }}- {{ component.price }}
         </li>
       </ul>
