@@ -30,6 +30,8 @@ import { PiecesService } from './configurations/Services/pieces.service';
 //import { Piece } from './configurations/Models/piece';
 import { PieceDetailComponent } from './components/shopping-detail/shopping-detail.component';
 import { PieceItemComponent } from './components/shopping-item/shopping-item.component';
+import { ConfirmDialogComponent } from './shared/confirmdialog/confirm-dialog.component';
+import { MatCardModule } from '@angular/material';
 
 
 
@@ -56,14 +58,21 @@ import { PieceItemComponent } from './components/shopping-item/shopping-item.com
     PieceEditComponent,
 
     AuthComponent,
-    LoadingSpinnerComponent
+    LoadingSpinnerComponent,
+
+    ConfirmDialogComponent
+
    ],
+
+   entryComponents: [ConfirmDialogComponent],
+
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatCardModule
   ],
   providers: [
     ConfigurationsService,

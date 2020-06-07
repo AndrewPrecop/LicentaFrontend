@@ -9,7 +9,7 @@ export class ComponentsService {
     private url: string;
 
     constructor(private http: HttpClient) {
-        this.url = `https://localhost:44330/api/component`;
+        this.url = `https://localhost:44330/api/component/`;
     }
 
     getAll(): Observable<Component[]> {

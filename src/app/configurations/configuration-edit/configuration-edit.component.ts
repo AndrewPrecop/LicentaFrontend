@@ -15,30 +15,34 @@ export class ConfigurationEditComponent implements OnInit {
   editMode = false;
   configurationForm: FormGroup;
   componentOptions = [];
+  loaded = false;
+  componentLabels = ["Case", "Monitor", "CPU", "GPU", "RAM", "StorageDevice", "Cooling", "PSU", "OperatingSystem", "InputDevice"];
 
   constructor(private route: ActivatedRoute,
-              private configurationsService: ConfigurationsService,
-              private componentsService: ComponentsService,
-              private router: Router) {
+    private configurationsService: ConfigurationsService,
+    private componentsService: ComponentsService,
+    private router: Router) {
 
   }
 
   ngOnInit() {
     this.componentsService.getAll().subscribe(result => {
       this.componentOptions = result;
+      console.log(this.componentOptions);
       this.route.params
         .subscribe(
           (params: Params) => {
             this.id = params.id;
             this.editMode = params.id != null;
             this.initForm();
+            this.loaded = true;
           }
         );
     });
   }
   onSubmit() {
     const body = this.configurationForm.value as Configuration;
-    body.components = this.configurationForm.get('components').value.map(o => o.option);
+    body.components = this.configurationForm.get('components').value.map(o => { return { id: o.option, amount: o.amount } });
 
     (this.editMode ? this.configurationsService.update(this.id, body) :
       this.configurationsService.add(body)).subscribe(result => {
@@ -49,7 +53,7 @@ export class ConfigurationEditComponent implements OnInit {
     (this.configurationForm.get('components') as FormArray).push(
       new FormGroup({
         option: new FormControl(null, Validators.required)
-        
+
       })
     );
   }
@@ -77,7 +81,9 @@ export class ConfigurationEditComponent implements OnInit {
           for (const component of configuration.components) {
             configurationPieces.push(
               new FormGroup({
-                option: new FormControl(component.id, Validators.required)
+                option: new FormControl(component.id, Validators.required),
+                amount: new FormControl(component.amount, Validators.required)
+
               })
             );
           }
@@ -85,6 +91,16 @@ export class ConfigurationEditComponent implements OnInit {
         this.initHelper(configurationName, configurationImagePath, configurationDescription, configurationPieces);
       });
     } else {
+      for (let i = 0; i < 10; i++) {
+        configurationPieces.push(
+          new FormGroup({
+            option: new FormControl(null, Validators.required),
+            amount: new FormControl(1, Validators.required)
+
+          })
+        );
+      }
+
       this.initHelper(configurationName, configurationImagePath, configurationDescription, configurationPieces);
     }
   }
@@ -96,6 +112,12 @@ export class ConfigurationEditComponent implements OnInit {
       description: new FormControl(configurationDescription, Validators.required),
       components: configurationPieces
     });
+
+
+  }
+
+  getFiltered(type: number) {
+    return this.componentOptions.filter(f => f.type === type);
   }
 
 }
