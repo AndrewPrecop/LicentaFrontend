@@ -12,6 +12,7 @@ import { PiecesService } from 'src/app/configurations/Services/pieces.service';
 export class PieceListComponent implements OnInit {
   pieces: Piece[];
   subscription: Subscription;
+  isAdmin: boolean;
 
   constructor(private piecesService: PiecesService,
               private router: Router,
@@ -21,6 +22,7 @@ export class PieceListComponent implements OnInit {
 
     this.piecesService.getAll().subscribe(
       (pieces: Piece[]) => {
+        this.isAdmin = localStorage.getItem("isAdmin")=='true';
         this.pieces = pieces;
       }
     );

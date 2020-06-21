@@ -38,22 +38,22 @@ export class PieceDetailComponent implements OnInit {
   }
   onDeletePiece() {
 
-      // let's call our modal window
-  const dialogRef = this.dialog.open(ConfirmDialogComponent, {
-    maxWidth: "400px",
-    data: {
-        title: "Are you sure?",
-        message: "You are about to delete user "}
-  });
+//       // let's call our modal window
+//   const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+//     maxWidth: "400px",
+//     data: {
+//         title: "Are you sure?",
+//         message: "You are about to delete user "}
+//   });
 
-  // listen to response
-  dialogRef.afterClosed().subscribe(dialogResult => {
-    // if user pressed yes dialogResult will be true, 
-    // if he pressed no - it will be false
-    console.log(dialogResult);
+//   // listen to response
+//   dialogRef.afterClosed().subscribe(dialogResult => {
+//     // if user pressed yes dialogResult will be true, 
+//     // if he pressed no - it will be false
+//     console.log(dialogResult);
     
- });
- ///pana aici am pus cod
+//  });
+//  ///pana aici am pus cod
 
     this.piecesService.delete(this.id).subscribe(result => {
     this.router.navigate(['/pieces']);

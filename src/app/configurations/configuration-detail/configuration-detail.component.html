@@ -46,7 +46,7 @@
   style="cursor: pointer;"
   class="list-group-item clearfix">
   <div class="pull-left">
-    <h4 class="list-group-item-heading">{{ price }} EURO</h4>
+    <h4 class="list-group-item-heading">{{ price }} Dollars</h4>
    
   </div>
  
@@ -58,7 +58,7 @@
         <li
           class="list-group-item"
           *ngFor="let component of configuration?.components">
-          {{ component.name }} - {{ component.amount }}pieces - {{ component.brand }}- {{ component.description }}- {{ component.price }}$
+          {{ component.name }} - {{ component.amount }}pieces - {{ component.brand }}- {{ component.description }}  Price  {{ component.price }}  $
         </li>
       </ul>
     </div>

@@ -2,7 +2,9 @@ import { Component, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
 import { PiecesService } from 'src/app/configurations/Services/pieces.service';
-import { Piece } from 'src/app/configurations/Models/piece';
+//import { Piece } from 'src/app/configurations/Models/piece';
+import { Piece} from 'src/app/configurations/Models/Piece';
+import { from } from 'rxjs';
 
 
 @Component({
@@ -65,6 +67,7 @@ export class PieceEditComponent implements OnInit {
     let pieceImagePath = '';
     let piecePrice ;
     let pieceAmount ;
+    let pieceType ;
    
 
     if (this.editMode) {
@@ -75,15 +78,16 @@ export class PieceEditComponent implements OnInit {
         pieceImagePath = piece.imagePath;
         piecePrice = piece.price;
         pieceAmount = piece.amount;
+        pieceType = piece.type;
         
-        this.initHelper(pieceName, pieceBrand,pieceDescription,pieceImagePath, piecePrice,pieceAmount);
+        this.initHelper(pieceName, pieceBrand,pieceDescription,pieceImagePath, piecePrice,pieceAmount,pieceType);
       });
     } else {
-      this.initHelper(pieceName, pieceBrand,pieceDescription,pieceImagePath, piecePrice,pieceAmount);
+      this.initHelper(pieceName, pieceBrand,pieceDescription,pieceImagePath, piecePrice,pieceAmount,pieceType);
     }
   }
 
-  private initHelper(pieceName, pieceBrand,pieceDescription,pieceImagePath, piecePrice,pieceAmount) {
+  private initHelper(pieceName, pieceBrand,pieceDescription,pieceImagePath, piecePrice,pieceAmount,pieceType) {
     this.pieceForm = new FormGroup({
       name: new FormControl(pieceName, Validators.required),
       brand: new FormControl(pieceBrand, Validators.required),
@@ -91,6 +95,7 @@ export class PieceEditComponent implements OnInit {
       imagePath: new FormControl(pieceImagePath, Validators.required),
       price: new FormControl(piecePrice, Validators.required),
       amount: new FormControl(pieceAmount, Validators.required),
+      type: new FormControl(pieceType, Validators.required),
       
     });
   }

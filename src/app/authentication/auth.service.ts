@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { catchError, tap } from 'rxjs/operators';
+import { catchError, tap, window } from 'rxjs/operators';
 import { throwError, BehaviorSubject } from 'rxjs';
 
 import { User } from './user.model';
@@ -67,8 +67,18 @@ export class AuthService {
             resData.token,
             3600,
           );
+          this.updateAdminStatus();
         })
       );
+  }
+
+  updateAdminStatus()
+  {
+    return this.http
+    .get<boolean>(
+      'https://localhost:44330/users/admin').subscribe(result=>{
+        localStorage.setItem("isAdmin",result.toString());
+      })
   }
 
   autoLogin() {
